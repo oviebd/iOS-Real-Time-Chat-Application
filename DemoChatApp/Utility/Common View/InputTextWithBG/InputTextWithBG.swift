@@ -8,13 +8,23 @@
 import SwiftUI
 
 struct InputTextWithBG: View {
+   
+    @Binding var text: String
+    var placeHolderText : String
+    var placeHolderColor = Constants.ColorAsset.primaryTextColor
+    var textColor = Constants.ColorAsset.primaryTextColor
+    var keyBoardType : UIKeyboardType =  .default
+    var cornerRadius : Double = 10
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        DefaultInputText(text: $text, placeHolderText: placeHolderText, keyBoardType: keyBoardType)
+            .modifier(DefaultRectangleBg(cornerRadius: cornerRadius))
     }
 }
 
 struct InputTextWithBG_Previews: PreviewProvider {
     static var previews: some View {
-        InputTextWithBG()
+        InputTextWithBG(text: .constant(""), placeHolderText: "placeholder")
     }
 }

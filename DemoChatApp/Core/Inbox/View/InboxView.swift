@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct InboxView: View {
+    
+    @State private var showNewMessageView = false
+    
     var body: some View {
         NavigationStack {
             
@@ -15,10 +18,20 @@ struct InboxView: View {
                 ActiveNowView()
                     .padding(.leading,20)
                  
-                    
+                  
+                List{
+                    ForEach(0 ... 10, id: \.self){
+                        message in
+                        InboxRowView()
+                    }
+                }.listStyle(PlainListStyle())
+                    .frame(height: UIScreen.main.bounds.height - 120)
+                   
                 
-            }
-            .padding(.top,40)
+            }.fullScreenCover(isPresented: $showNewMessageView, content: {
+                NewMessageView()
+            })
+           
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     leadingToolbarItem
@@ -49,6 +62,7 @@ extension InboxView {
 
     var trailingToolbarItem: some View {
         Button {
+            showNewMessageView.toggle()
             print("show new message view")
         } label: {
             Image(systemName: "square.and.pencil.circle.fill")

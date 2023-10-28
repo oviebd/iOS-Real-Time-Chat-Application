@@ -11,7 +11,7 @@ import SwiftUI
 struct DemoChatAppApp: App {
     var body: some Scene {
         WindowGroup {
-            LoginView()
+            InboxView()
         }
     }
 }

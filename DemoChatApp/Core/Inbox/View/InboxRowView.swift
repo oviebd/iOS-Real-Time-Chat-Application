@@ -9,44 +9,37 @@ import SwiftUI
 
 struct InboxRowView: View {
     var body: some View {
-       
-        HStack (alignment: .top) {
-            
+        HStack(alignment: .top) {
             Image(systemName: "person.circle.fill")
                 .resizable()
                 .frame(width: 64, height: 64)
                 .foregroundColor(Constants.ColorAsset.viewBackgroundLight)
-            
-            VStack(alignment: .leading){
-                Text("Name")
-                    .foregroundColor(Constants.ColorAsset.primaryTextColor)
-                    .fontWeight(.bold)
-                Text("Message")
-                    .foregroundColor(Constants.ColorAsset.textColor2).lineLimit(2)
 
-            }.padding(.top,10)
-                .font(.subheadline)
-            
-            Spacer()
-            
-            HStack{
-                Text("Message")
+            VStack(alignment: .leading, spacing: 5) {
+               
+                HStack {
+                    Text("Name")
+                        .foregroundColor(Constants.ColorAsset.primaryTextColor)
+                        .fontWeight(.bold)
+
+                    Spacer()
+
+                    Text("Yesterday")
+                        .foregroundColor(Constants.ColorAsset.textColor2)
+                        .font(.footnote)
+
+                    Image(systemName: "chevron.right")
+                        .foregroundColor(Constants.ColorAsset.textColor2)
+                        .font(.footnote)
+                }
+
+                Text("is1500")
                     .foregroundColor(Constants.ColorAsset.textColor2)
-                    .padding(.top,10)
-                
-                Image(systemName: "chevron.right")
-                
+                    .font(.subheadline)
+                    .lineLimit(2)
             }
-            
-//            Image(systemName: "person.circle.fill")
-//                .resizable()
-//                .frame(width: 64, height: 64)
-//                .foregroundColor(Constants.ColorAsset.viewBackgroundLight)
-          
-            
         }
-        
-        
+        .frame(height: 72)
     }
 }
 
