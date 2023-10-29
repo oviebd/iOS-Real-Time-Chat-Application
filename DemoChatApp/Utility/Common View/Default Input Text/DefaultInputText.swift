@@ -17,11 +17,12 @@ struct DefaultInputText: View {
     var keyBoardType : UIKeyboardType =  .default
  
     var body: some View {
-        TextField(placeHolderText, text: $text)
+        TextField(placeHolderText, text: $text, axis: .vertical)
             .font(.body)
             .foregroundColor(textColor)
             .padding(10)
             .keyboardType(keyBoardType)
+        
         
     }
 }
