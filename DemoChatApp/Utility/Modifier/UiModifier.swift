@@ -27,18 +27,19 @@ import SwiftUI
 //}
 
 
-//struct DefaultCircleOverlay: ViewModifier {
-//    var inset: CGFloat = 0.5
-//    var lineWidth = 1.0
-//
-//    func body(content: Content) -> some View {
-//        content
-//            .overlay(Circle()
-//                .inset(by: inset)
-//                .stroke(Color(hex: Constants.Colors.textFieldInvisibleStrokColor), lineWidth: lineWidth)
-//            )
-//    }
-//}
+struct DefaultCircleOverlay: ViewModifier {
+    var inset: CGFloat = 0.5
+    var lineWidth = 1.0
+    var bgColor = Constants.ColorAsset.viewBackgroundLight
+ 
+    func body(content: Content) -> some View {
+        content
+            .overlay(Circle()
+                .inset(by: inset)
+                .stroke(bgColor, lineWidth: lineWidth)
+            )
+    }
+}
 
 
 struct DefaultRectangleBg : ViewModifier {

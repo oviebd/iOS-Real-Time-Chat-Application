@@ -31,4 +31,8 @@ extension Constants {
         static let facebookIcon = "facebook_icon"
     }
     
+    struct DummyImages {
+        static let sheldon_profile = "sheldon_profile"
+    }
+    
 }

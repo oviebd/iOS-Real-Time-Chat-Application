@@ -10,7 +10,7 @@ import SwiftUI
 struct InboxView: View {
     
     @State private var showNewMessageView = false
-    
+    @State private var user = User.Mock_User
     var body: some View {
         NavigationStack {
             
@@ -28,7 +28,11 @@ struct InboxView: View {
                     .frame(height: UIScreen.main.bounds.height - 120)
                    
                 
-            }.fullScreenCover(isPresented: $showNewMessageView, content: {
+            }
+            .navigationDestination(for: User.self, destination: { user in
+                ProfileView( user: user)
+            })
+            .fullScreenCover(isPresented: $showNewMessageView, content: {
                 NewMessageView()
             })
            
@@ -53,7 +57,17 @@ struct InboxView_Previews: PreviewProvider {
 extension InboxView {
     var leadingToolbarItem: some View {
         HStack {
-            Image(systemName: "person.circle.fill")
+            
+            NavigationLink(value: user){
+                Image(user.profileImageUrl ?? Constants.DummyImages.sheldon_profile)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 24, height: 24)
+                    .clipShape(Circle())
+                    .modifier(DefaultCircleOverlay(bgColor: Constants.ColorAsset.primaryBlueColor))
+            }
+            
+        
             Text("Chats")
                 .font(.title)
                 .fontWeight(.semibold)
