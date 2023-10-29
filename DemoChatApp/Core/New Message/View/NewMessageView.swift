@@ -26,7 +26,7 @@ struct NewMessageView: View {
                     _ in
 
                     VStack{
-                        SingleNewMessageItemRow()
+                        SingleNewMessageItemRow(user: User.Mock_User)
                     }.padding(.horizontal)
                     
                 }

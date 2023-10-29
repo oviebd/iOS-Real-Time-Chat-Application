@@ -15,14 +15,13 @@ struct InboxView: View {
         NavigationStack {
             
             ScrollView {
-                ActiveNowView()
+                ActiveNowView(user: User.Mock_User)
                     .padding(.leading,20)
-                 
-                  
+                
                 List{
                     ForEach(0 ... 10, id: \.self){
                         message in
-                        InboxRowView()
+                        InboxRowView(user: User.Mock_User)
                     }
                 }.listStyle(PlainListStyle())
                     .frame(height: UIScreen.main.bounds.height - 120)
@@ -59,15 +58,8 @@ extension InboxView {
         HStack {
             
             NavigationLink(value: user){
-                Image(user.profileImageUrl ?? Constants.DummyImages.sheldon_profile)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 24, height: 24)
-                    .clipShape(Circle())
-                    .modifier(DefaultCircleOverlay(bgColor: Constants.ColorAsset.primaryBlueColor))
+                CircularProfileImageView(user: user, size: .xSmall)
             }
-            
-        
             Text("Chats")
                 .font(.title)
                 .fontWeight(.semibold)

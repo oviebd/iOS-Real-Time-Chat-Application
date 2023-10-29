@@ -51,10 +51,9 @@ extension ProfileView {
                         .frame(width: 80, height: 80)
 
                 } else {
-                    Image(systemName: "person.circle.fill")
-                        .resizable()
-                        .frame(width: 80, height: 80)
-                        .foregroundColor(Constants.ColorAsset.viewBackgroundLight)
+                    
+                    CircularProfileImageView(user: user, size: .xLarge)
+                    
                 }
             }
 

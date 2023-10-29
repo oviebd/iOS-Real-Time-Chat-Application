@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ActiveNowView: View {
+    let user : User
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 20) {
@@ -16,10 +17,7 @@ struct ActiveNowView: View {
                     VStack(spacing: 2) {
                         ZStack(alignment: .bottom) {
                            
-                            Image(systemName: "person.circle.fill")
-                                .resizable()
-                                .frame(width: 64, height: 64)
-                                .foregroundColor(Constants.ColorAsset.viewBackgroundLight)
+                            CircularProfileImageView(user: user, size: .medium)
 
                             ZStack(alignment: .center) {
                                 Circle()
@@ -44,6 +42,6 @@ struct ActiveNowView: View {
 
 struct ActiveNowView_Previews: PreviewProvider {
     static var previews: some View {
-        ActiveNowView()
+        ActiveNowView(user: User.Mock_User)
     }
 }

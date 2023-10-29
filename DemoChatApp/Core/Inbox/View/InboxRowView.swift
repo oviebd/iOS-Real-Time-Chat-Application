@@ -8,17 +8,17 @@
 import SwiftUI
 
 struct InboxRowView: View {
+    
+    let user : User
+    
     var body: some View {
         HStack(alignment: .top) {
-            Image(systemName: "person.circle.fill")
-                .resizable()
-                .frame(width: 64, height: 64)
-                .foregroundColor(Constants.ColorAsset.viewBackgroundLight)
+            CircularProfileImageView(user: user, size: .medium)
 
             VStack(alignment: .leading, spacing: 5) {
                
                 HStack {
-                    Text("Name")
+                    Text(user.fullName)
                         .foregroundColor(Constants.ColorAsset.primaryTextColor)
                         .fontWeight(.bold)
 
@@ -45,6 +45,6 @@ struct InboxRowView: View {
 
 struct InboxRowView_Previews: PreviewProvider {
     static var previews: some View {
-        InboxRowView()
+        InboxRowView(user: User.Mock_User)
     }
 }

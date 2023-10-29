@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct SingleNewMessageItemRow: View {
+    
+    let user : User
+    
     var body: some View {
         VStack {
             HStack {
-                Image(systemName: "person.circle.fill")
-                    .resizable()
-                    .frame(width: 32, height: 32)
-                    .foregroundColor(Constants.ColorAsset.viewBackgroundLight)
+                CircularProfileImageView(user: user, size: .small)
 
                 Text("Name")
                     .foregroundColor(Constants.ColorAsset.primaryTextColor)
@@ -31,6 +31,6 @@ struct SingleNewMessageItemRow: View {
 
 struct SingleNewMessageItemRow_Previews: PreviewProvider {
     static var previews: some View {
-        SingleNewMessageItemRow()
+        SingleNewMessageItemRow(user: User.Mock_User)
     }
 }
