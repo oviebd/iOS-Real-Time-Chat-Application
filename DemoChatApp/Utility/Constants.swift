@@ -17,8 +17,10 @@ class Constants {
         static let placeHolderTextColor = Color("placeHolderTextColor")
         static let viewBackgroundLight = Color("viewBackgroundLight")
         static let primaryBlueColor = Color("primaryBlueColor")
-        
-        
+    }
+    
+    struct AppConstants {
+        static let AppName = "Chat App"
     }
 
 }

@@ -8,9 +8,8 @@
 import SwiftUI
 
 struct RegistrationView: View {
-    
     @Environment(\.dismiss) var dismiss
-    
+
     @StateObject var registrationVM = RegistrationViewModel()
 
     var body: some View {
@@ -41,7 +40,12 @@ struct RegistrationView: View {
 
             signinView
                 .padding(.top, 20)
+
         }
+        .modifier(DefaultAlertModifier(isLoading: $registrationVM.isLoading, isCancelable: true, cancelAction: {
+            print("Cancel Action")
+        }))
+        
     }
 }
 
@@ -54,6 +58,7 @@ struct RegistrationView_Previews: PreviewProvider {
 extension RegistrationView {
     var signupButton: some View {
         Button {
+            Task { try await registrationVM.createUser() }
         } label: {
             Text("Sign Up")
                 .padding(12)

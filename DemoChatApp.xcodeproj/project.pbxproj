@@ -42,6 +42,9 @@
 		F3CB108B2AEAC1B000B72222 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CB108A2AEAC1B000B72222 /* LoginViewModel.swift */; };
 		F3CB108D2AEAC2DE00B72222 /* UiModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CB108C2AEAC2DE00B72222 /* UiModifier.swift */; };
 		F3CB108F2AEAD07C00B72222 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CB108E2AEAD07C00B72222 /* Utility.swift */; };
+		F3F835552AF16CF500410E91 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F835542AF16CF500410E91 /* CustomAlert.swift */; };
+		F3F8355A2AF1702900410E91 /* CustomLoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F835592AF1702900410E91 /* CustomLoadingIndicator.swift */; };
+		F3F8355C2AF173CA00410E91 /* AlertViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F8355B2AF173CA00410E91 /* AlertViewModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +80,9 @@
 		F3CB108A2AEAC1B000B72222 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		F3CB108C2AEAC2DE00B72222 /* UiModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UiModifier.swift; sourceTree = "<group>"; };
 		F3CB108E2AEAD07C00B72222 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		F3F835542AF16CF500410E91 /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
+		F3F835592AF1702900410E91 /* CustomLoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLoadingIndicator.swift; sourceTree = "<group>"; };
+		F3F8355B2AF173CA00410E91 /* AlertViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +227,7 @@
 			children = (
 				F35679582AEA98F200A30FA5 /* FontModifier.swift */,
 				F3CB108C2AEAC2DE00B72222 /* UiModifier.swift */,
+				F3F8355B2AF173CA00410E91 /* AlertViewModifier.swift */,
 			);
 			path = Modifier;
 			sourceTree = "<group>";
@@ -331,6 +338,8 @@
 		F3C91E262AEEBCD000D0E0F7 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				F3F835582AF1701600410E91 /* Custom Loading Indicator */,
+				F3F835532AF16CD100410E91 /* Custom Alert */,
 				F3C91E272AEEBCE800D0E0F7 /* CircularProfileImageView.swift */,
 			);
 			path = Components;
@@ -378,6 +387,22 @@
 				F3CB10872AEABB5000B72222 /* DefaultInputText.swift */,
 			);
 			path = "Default Input Text";
+			sourceTree = "<group>";
+		};
+		F3F835532AF16CD100410E91 /* Custom Alert */ = {
+			isa = PBXGroup;
+			children = (
+				F3F835542AF16CF500410E91 /* CustomAlert.swift */,
+			);
+			path = "Custom Alert";
+			sourceTree = "<group>";
+		};
+		F3F835582AF1701600410E91 /* Custom Loading Indicator */ = {
+			isa = PBXGroup;
+			children = (
+				F3F835592AF1702900410E91 /* CustomLoadingIndicator.swift */,
+			);
+			path = "Custom Loading Indicator";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -461,6 +486,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3B976412AEBE93E00B408CD /* RegistrationView.swift in Sources */,
+				F3F8355C2AF173CA00410E91 /* AlertViewModifier.swift in Sources */,
 				F3B9764B2AEBF46100B408CD /* ActiveNowView.swift in Sources */,
 				F34D0AAE2AED701900B7FF11 /* SingleNewMessageItemRow.swift in Sources */,
 				F3CB108D2AEAC2DE00B72222 /* UiModifier.swift in Sources */,
@@ -478,6 +504,7 @@
 				F3C91E202AEE8DB300D0E0F7 /* SettingOptionViewModel.swift in Sources */,
 				F3C91E362AEED06F00D0E0F7 /* ChatBubble.swift in Sources */,
 				F35679432AEA97A000A30FA5 /* ContentView.swift in Sources */,
+				F3F835552AF16CF500410E91 /* CustomAlert.swift in Sources */,
 				F34D0AA92AED543700B7FF11 /* NewMessageView.swift in Sources */,
 				F3B9763F2AEBE91300B408CD /* RegistrationViewModel.swift in Sources */,
 				F3C91E342AEECD4C00D0E0F7 /* ChatMessageCell.swift in Sources */,
@@ -486,6 +513,7 @@
 				F3CB10882AEABB5000B72222 /* DefaultInputText.swift in Sources */,
 				F3C91E1E2AEE87DC00D0E0F7 /* ProfileView.swift in Sources */,
 				F3B976442AEBEA0A00B408CD /* InputTextWithBG.swift in Sources */,
+				F3F8355A2AF1702900410E91 /* CustomLoadingIndicator.swift in Sources */,
 				F3CB108B2AEAC1B000B72222 /* LoginViewModel.swift in Sources */,
 				F3982AC92AF1548C00701854 /* AuthService.swift in Sources */,
 			);
