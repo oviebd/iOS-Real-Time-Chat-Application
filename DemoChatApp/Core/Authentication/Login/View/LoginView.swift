@@ -83,6 +83,7 @@ extension LoginView {
 
     var loginButton: some View {
         Button {
+            Task{try await loginVm.login()}
         } label: {
             Text("Login")
                 .padding(12)

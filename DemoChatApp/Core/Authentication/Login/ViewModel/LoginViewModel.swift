@@ -12,4 +12,8 @@ class LoginViewModel : ObservableObject {
     @Published var emailInputText : String = ""
     @Published var passwordInputText : String = ""
     
+    
+    func login() async throws {
+        try await AuthService().login(withEmail: emailInputText, password: passwordInputText)
+    }
 }
