@@ -20,7 +20,7 @@ class RegistrationViewModel :  ObservableObject {
     
     func createUser() async throws {
         isLoading = true
-        try await AuthService().createUser(withEmail: emailInputText, password: passwordInputText, fullName: fullNameInputText)
+        try await AuthService.shared.createUser(withEmail: emailInputText, password: passwordInputText, fullName: fullNameInputText)
        // isLoading = false
     }
     

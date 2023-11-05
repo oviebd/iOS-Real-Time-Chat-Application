@@ -16,7 +16,7 @@ struct SingleNewMessageItemRow: View {
             HStack {
                 CircularProfileImageView(user: user, size: .small)
 
-                Text("Name")
+                Text(user.fullName)
                     .foregroundColor(Constants.ColorAsset.primaryTextColor)
                     .font(.subheadline)
                     .fontWeight(.semibold)

@@ -22,6 +22,12 @@ class Constants {
     struct AppConstants {
         static let AppName = "Chat App"
     }
+    
+    
+    struct DB {
+        static let User = "Users"
+        static let Messages = "messages"
+    }
 
 }
 

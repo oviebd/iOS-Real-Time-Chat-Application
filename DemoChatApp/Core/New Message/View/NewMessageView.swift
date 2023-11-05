@@ -22,11 +22,11 @@ struct NewMessageView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding()
 
-                ForEach(0 ... 10, id: \.self) {
-                    _ in
+                ForEach(vm.users) {
+                    user in
 
                     VStack{
-                        SingleNewMessageItemRow(user: User.Mock_User)
+                        SingleNewMessageItemRow(user: user)
                     }.padding(.horizontal)
                     
                 }
