@@ -9,8 +9,13 @@ import SwiftUI
 
 struct ChatView: View {
     
-    @StateObject var chatVm = ChatViewModel()
+    @StateObject var chatVm : ChatViewModel
     let user : User
+    
+    init(user: User) {
+        self._chatVm = StateObject(wrappedValue: ChatViewModel(user: user))
+        self.user = user
+    }
     
     var body: some View {
         
@@ -61,7 +66,8 @@ extension ChatView {
                 .padding(.trailing,55)
          
             Button{
-                
+                chatVm.sendMessages()
+                chatVm.chatText = ""
             }label: {
                 Text("Send")
                     .padding(10)

@@ -10,7 +10,8 @@ import SwiftUI
 struct NewMessageView: View {
     @Environment(\.dismiss) var dismiss
     @StateObject var vm = NewMessageViewModel()
-
+    @Binding var selectedUser : User?
+    
     var body: some View {
         NavigationStack {
             ScrollView {
@@ -27,6 +28,10 @@ struct NewMessageView: View {
 
                     VStack{
                         SingleNewMessageItemRow(user: user)
+                            .onTapGesture {
+                                selectedUser = user
+                                dismiss()
+                            }
                     }.padding(.horizontal)
                     
                 }
@@ -47,7 +52,7 @@ struct NewMessageView: View {
 struct NewMessageView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            NewMessageView()
+            NewMessageView( selectedUser: .constant(User.Mock_User))
         }
     }
 }
