@@ -36,7 +36,7 @@ struct InboxView: View {
                 
             }
             .onChange(of: selectedUser, perform: { newValue in
-                showChat = newValue != nil
+                showChat = newValue != nil   
             })
             .navigationDestination(for: User.self, destination: { user in
                 ProfileView( user: user)
@@ -84,7 +84,7 @@ extension InboxView {
     var trailingToolbarItem: some View {
         Button {
             showNewMessageView.toggle()
-            print("show new message view")
+            selectedUser = nil
         } label: {
             Image(systemName: "square.and.pencil.circle.fill")
                 .resizable()

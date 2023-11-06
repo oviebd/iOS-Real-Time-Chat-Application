@@ -27,6 +27,7 @@ class Constants {
     struct DB {
         static let User = "Users"
         static let Messages = "messages"
+        static let Timestamp = "timeStamp"
     }
 
 }

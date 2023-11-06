@@ -34,8 +34,8 @@ struct ChatView: View {
                     .foregroundColor(Constants.ColorAsset.textColor2)
                 
                 
-                ForEach(0 ... 15, id: \.self){ message in
-                    ChatMessageCell(isFromCurrentUser: Bool.random(), user: user)
+                ForEach(chatVm.messages){ message in
+                   ChatMessageCell(message: message)
                     
                 }
 
