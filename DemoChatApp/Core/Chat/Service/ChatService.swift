@@ -5,21 +5,21 @@
 //  Created by Habibur Rahman on 6/11/23.
 //
 
-import Foundation
 import Firebase
+import Foundation
 
-struct ChatService{
+struct ChatService {
     
-    let chatPartner : User
-    
-    let messageCollection = Firestore.firestore().collection(Constants.DB.Messages)
+    let chatPartner: User
 
     func sendMessage(_ messageText: String) {
         guard let currentUuid = Auth.auth().currentUser?.uid else { return }
         let chatPartnerId = chatPartner.id
 
-        let currenrUserRef = messageCollection.document(currentUuid).collection(chatPartnerId).document()
-        let chatPartnerRef = messageCollection.document(chatPartnerId).collection(currentUuid)
+        let currenrUserRef = FirebaseConstants.MessagesCollection
+            .document(currentUuid).collection(chatPartnerId).document()
+        let chatPartnerRef = FirebaseConstants.MessagesCollection
+            .document(chatPartnerId).collection(currentUuid)
 
         let messageId = currenrUserRef.documentID
 
@@ -39,7 +39,8 @@ struct ChatService{
         guard let currentId = Auth.auth().currentUser?.uid else { return }
         let chatPartnerId = chatPartner.id
 
-        let query = messageCollection.document(currentId)
+        let query = FirebaseConstants.MessagesCollection
+            .document(currentId)
             .collection(chatPartnerId)
             .order(by: Constants.DB.Timestamp, descending: false)
 
@@ -57,5 +58,4 @@ struct ChatService{
             completion(messages)
         }
     }
-    
 }

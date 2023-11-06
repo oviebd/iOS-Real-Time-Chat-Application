@@ -7,6 +7,14 @@
 
 import Foundation
 import SwiftUI
+import Firebase
+
+struct FirebaseConstants {
+    
+    static let UserCollection =  Firestore.firestore().collection(Constants.DB.User)
+    static let MessagesCollection =  Firestore.firestore().collection(Constants.DB.Messages)
+    
+}
 
 class Constants {
 
@@ -45,3 +53,4 @@ extension Constants {
     }
     
 }
+
