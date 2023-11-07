@@ -35,6 +35,7 @@ class Constants {
     struct DB {
         static let User = "Users"
         static let Messages = "messages"
+        static let RecentMessages = "recent-messages"
         static let Timestamp = "timeStamp"
     }
 

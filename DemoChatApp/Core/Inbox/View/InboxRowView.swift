@@ -9,7 +9,11 @@ import SwiftUI
 
 struct InboxRowView: View {
     
-    let user : User
+    let message : Message
+    
+    var user : User? {
+        return message.user 
+    }
     
     var body: some View {
         HStack(alignment: .top) {
@@ -18,7 +22,7 @@ struct InboxRowView: View {
             VStack(alignment: .leading, spacing: 5) {
                
                 HStack {
-                    Text(user.fullName)
+                    Text(user?.fullName ?? "")
                         .foregroundColor(Constants.ColorAsset.primaryTextColor)
                         .fontWeight(.bold)
 
@@ -33,7 +37,7 @@ struct InboxRowView: View {
                         .font(.footnote)
                 }
 
-                Text("is1500")
+                Text(message.messageText)
                     .foregroundColor(Constants.ColorAsset.textColor2)
                     .font(.subheadline)
                     .lineLimit(2)
@@ -43,8 +47,8 @@ struct InboxRowView: View {
     }
 }
 
-struct InboxRowView_Previews: PreviewProvider {
-    static var previews: some View {
-        InboxRowView(user: User.Mock_User)
-    }
-}
+//struct InboxRowView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        InboxRowView(user: User.Mock_User)
+//    }
+//}

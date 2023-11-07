@@ -26,9 +26,9 @@ struct InboxView: View {
                     .padding(.leading,20)
                 
                 List{
-                    ForEach(0 ... 10, id: \.self){
+                    ForEach(viewModel.recentMessages){
                         message in
-                        InboxRowView(user: User.Mock_User)
+                        InboxRowView(message: message)
                     }
                 }.listStyle(PlainListStyle())
                     .frame(height: UIScreen.main.bounds.height - 120)
