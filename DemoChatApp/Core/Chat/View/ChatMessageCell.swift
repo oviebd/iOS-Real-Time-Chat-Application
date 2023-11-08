@@ -13,6 +13,10 @@ struct ChatMessageCell: View {
     private var isFromCurrentUser: Bool {
         return message.isFromCurrenrUser
     }
+    
+    private var user : User? {
+        return message.user
+    }
 
     var body: some View {
         HStack {
@@ -27,7 +31,7 @@ struct ChatMessageCell: View {
                     .frame(maxWidth: Utility.getScreenWidth() / 1.5, alignment: .trailing)
             } else {
                 HStack(alignment: .bottom, spacing: 8.0) {
-                    CircularProfileImageView(user: User.Mock_User, size: .xxSmall)
+                    CircularProfileImageView(user: user, size: .xxSmall)
 
                     Text(message.messageText)
                         .font(.subheadline)

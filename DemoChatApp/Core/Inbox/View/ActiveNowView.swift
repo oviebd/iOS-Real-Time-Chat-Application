@@ -8,32 +8,38 @@
 import SwiftUI
 
 struct ActiveNowView: View {
-    let user : User
+    
+    @StateObject private var vm = ActiveNowVM()
+    
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 20) {
                 
-                ForEach(0 ... 10, id: \.self) { _ in
-                    VStack(spacing: 2) {
-                        ZStack(alignment: .bottom) {
-                           
-                            CircularProfileImageView(user: user, size: .medium)
+                ForEach(vm.users) { user in
+    
+                    NavigationLink (value: Route.chatView(user)){
+                        VStack(spacing: 2) {
+                            ZStack(alignment: .bottom) {
+                               
+                                CircularProfileImageView(user: user, size: .medium)
 
-                            ZStack(alignment: .center) {
-                                Circle()
-                                    .frame(width: 12, height: 12)
-                                    .foregroundColor(.white)
+                                ZStack(alignment: .center) {
+                                    Circle()
+                                        .frame(width: 12, height: 12)
+                                        .foregroundColor(.white)
 
-                                Circle()
-                                    .frame(width: 10, height: 10)
-                                    .foregroundColor(.green)
-                            }.offset(x: 30, y: -10)
+                                    Circle()
+                                        .frame(width: 10, height: 10)
+                                        .foregroundColor(.green)
+                                }.offset(x: 30, y: -10)
+                            }
+
+                            Text(user.firstName)
+                                .font(.subheadline)
+                                .foregroundColor(Constants.ColorAsset.placeHolderTextColor)
                         }
-
-                        Text("Name")
-                            .font(.subheadline)
-                            .foregroundColor(Constants.ColorAsset.placeHolderTextColor)
                     }
+
                 }
             }
         }.frame(height: 90)
@@ -42,6 +48,6 @@ struct ActiveNowView: View {
 
 struct ActiveNowView_Previews: PreviewProvider {
     static var previews: some View {
-        ActiveNowView(user: User.Mock_User)
+        ActiveNowView()
     }
 }
