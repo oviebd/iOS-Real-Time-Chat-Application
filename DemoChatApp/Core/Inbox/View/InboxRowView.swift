@@ -28,7 +28,7 @@ struct InboxRowView: View {
 
                     Spacer()
 
-                    Text("Yesterday")
+                    Text(message.timestampstring)
                         .foregroundColor(Constants.ColorAsset.textColor2)
                         .font(.footnote)
 

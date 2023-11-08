@@ -8,56 +8,64 @@
 import SwiftUI
 
 struct InboxView: View {
-    
     @State private var showNewMessageView = false
     @StateObject private var viewModel = InboxViewModel()
-    @State private var selectedUser : User?
+    @State private var selectedUser: User?
     @State private var showChat = false
-    
-    private var user : User?{
+
+    private var user: User? {
         return viewModel.currentUser
     }
-    
+
     var body: some View {
         NavigationStack {
-            
-            ScrollView {
+            List {
                 ActiveNowView(user: User.Mock_User)
-                    .padding(.leading,20)
-                
-                List{
-                    ForEach(viewModel.recentMessages){
-                        message in
+                    .listRowSeparator(.hidden)
+                    .listRowInsets(EdgeInsets())
+                    .padding(.vertical)
+                    .padding(.horizontal, 4)
+
+                ForEach(viewModel.recentMessages) {
+                    message in
+
+                    ZStack {
+                        NavigationLink(value: message) {
+                            EmptyView()
+                        }.opacity(0.0)
                         InboxRowView(message: message)
                     }
-                }.listStyle(PlainListStyle())
-                    .frame(height: UIScreen.main.bounds.height - 120)
-                   
-                
-            }
-            .onChange(of: selectedUser, perform: { newValue in
-                showChat = newValue != nil   
-            })
-            .navigationDestination(for: User.self, destination: { user in
-                ProfileView( user: user)
-            })
-            .navigationDestination(isPresented: $showChat, destination: {
-                if let user = selectedUser{
-                    ChatView(user: user)
                 }
-            })
-            .fullScreenCover(isPresented: $showNewMessageView, content: {
-                NewMessageView(selectedUser: $selectedUser)
-            })
-           
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    leadingToolbarItem
+            }.listStyle(PlainListStyle())
+
+                .onChange(of: selectedUser, perform: { newValue in
+                    showChat = newValue != nil
+                })
+                .navigationDestination(for: Message.self, destination: { message in
+                    if let user = message.user {
+                        ChatView(user: user)
+                    }
+                })
+                .navigationDestination(for: User.self, destination: { user in
+                    ProfileView(user: user)
+                })
+                .navigationDestination(isPresented: $showChat, destination: {
+                    if let user = selectedUser {
+                        ChatView(user: user)
+                    }
+                })
+                .fullScreenCover(isPresented: $showNewMessageView, content: {
+                    NewMessageView(selectedUser: $selectedUser)
+                })
+
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        leadingToolbarItem
+                    }
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        trailingToolbarItem
+                    }
                 }
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    trailingToolbarItem
-                }
-            }
         }
     }
 }
@@ -71,8 +79,7 @@ struct InboxView_Previews: PreviewProvider {
 extension InboxView {
     var leadingToolbarItem: some View {
         HStack {
-            
-            NavigationLink(value: user){
+            NavigationLink(value: user) {
                 CircularProfileImageView(user: user, size: .xSmall)
             }
             Text("Chats")
