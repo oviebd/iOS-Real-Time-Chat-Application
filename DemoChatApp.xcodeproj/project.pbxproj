@@ -56,6 +56,7 @@
 		F3F835552AF16CF500410E91 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F835542AF16CF500410E91 /* CustomAlert.swift */; };
 		F3F8355A2AF1702900410E91 /* CustomLoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F835592AF1702900410E91 /* CustomLoadingIndicator.swift */; };
 		F3F8355C2AF173CA00410E91 /* AlertViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F8355B2AF173CA00410E91 /* AlertViewModifier.swift */; };
+		F3FF27412AFD3D0100BC8592 /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = F3FF27402AFD3D0100BC8592 /* URLImage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -115,6 +116,7 @@
 				F3982ABE2AF14E6000701854 /* FirebaseAuth in Frameworks */,
 				F3982AC42AF14E6000701854 /* FirebaseStorage in Frameworks */,
 				F3982AC02AF14E6000701854 /* FirebaseFirestore in Frameworks */,
+				F3FF27412AFD3D0100BC8592 /* URLImage in Frameworks */,
 				F3982AC22AF14E6000701854 /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -531,6 +533,7 @@
 				F3982ABF2AF14E6000701854 /* FirebaseFirestore */,
 				F3982AC12AF14E6000701854 /* FirebaseFirestoreSwift */,
 				F3982AC32AF14E6000701854 /* FirebaseStorage */,
+				F3FF27402AFD3D0100BC8592 /* URLImage */,
 			);
 			productName = DemoChatApp;
 			productReference = F356793D2AEA97A000A30FA5 /* DemoChatApp.app */;
@@ -562,6 +565,7 @@
 			mainGroup = F35679342AEA97A000A30FA5;
 			packageReferences = (
 				F3982ABC2AF14E6000701854 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				F3FF273F2AFD3D0100BC8592 /* XCRemoteSwiftPackageReference "url-image" */,
 			);
 			productRefGroup = F356793E2AEA97A000A30FA5 /* Products */;
 			projectDirPath = "";
@@ -846,6 +850,14 @@
 				kind = branch;
 			};
 		};
+		F3FF273F2AFD3D0100BC8592 /* XCRemoteSwiftPackageReference "url-image" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dmytro-anokhin/url-image";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -868,6 +880,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F3982ABC2AF14E6000701854 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		F3FF27402AFD3D0100BC8592 /* URLImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F3FF273F2AFD3D0100BC8592 /* XCRemoteSwiftPackageReference "url-image" */;
+			productName = URLImage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
