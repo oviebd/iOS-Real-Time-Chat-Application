@@ -21,25 +21,39 @@ struct ChatView: View {
         
         VStack{
 
-            ScrollView{
+            
+            ScrollViewReader {  proxy in
                 
-                CircularProfileImageView(user: user, size: .xLarge)
-                
-                Text(user.fullName)
-                    .font(.title3)
-                    .fontWeight(.semibold)
-                    .foregroundColor(Constants.ColorAsset.primaryTextColor)
-                Text("Messenger")
-                    .font(.footnote)
-                    .foregroundColor(Constants.ColorAsset.textColor2)
-                
-                
-                ForEach(chatVm.messages){ message in
-                   ChatMessageCell(message: message)
+                ScrollView{
                     
-                }
+                    CircularProfileImageView(user: user, size: .xLarge)
+                    
+                    Text(user.fullName)
+                        .font(.title3)
+                        .fontWeight(.semibold)
+                        .foregroundColor(Constants.ColorAsset.primaryTextColor)
+                    Text("Messenger")
+                        .font(.footnote)
+                        .foregroundColor(Constants.ColorAsset.textColor2)
+                    
+                    
+                    ForEach(chatVm.messages){ message in
+                       ChatMessageCell(message: message)
+                            .id(message.id)
+                        
+                    } .onChange(of: chatVm.messages, perform: { values in
+                        let lastMessageId = values[values.count - 1].id
+                        
+                        withAnimation {
+                            proxy.scrollTo(lastMessageId)
+                        }
+                      
+                    })
 
+                }
+                
             }
+            
             
             Spacer()
             sendView.padding()
