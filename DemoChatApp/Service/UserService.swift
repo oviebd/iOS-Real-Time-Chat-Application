@@ -42,7 +42,13 @@ class UserService {
         }
     }
     
-//    static let updateUser (){
-//        
-//    }
+    func updateCurrentUser(imagePath : String)  async throws {
+        guard let uid = currentUser?.uuid else { return }
+        var user = currentUser
+        user?.profileImageUrl = imagePath
+        guard let encodeUser = try? Firestore.Encoder().encode(user) else { return }
+        try await FirebaseConstants.UserCollection.document(uid).setData(encodeUser)
+        
+        try await fetchCurrentuser()
+    }
 }

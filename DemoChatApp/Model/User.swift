@@ -16,7 +16,7 @@ struct User: Codable, Identifiable, Hashable {
 
     let fullName: String
     let email: String
-    let profileImageUrl: String?
+    var profileImageUrl: String?
     
     var firstName : String{
         let formatter = PersonNameComponentsFormatter()
