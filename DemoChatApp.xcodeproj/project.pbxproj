@@ -50,6 +50,7 @@
 		F3CB108B2AEAC1B000B72222 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CB108A2AEAC1B000B72222 /* LoginViewModel.swift */; };
 		F3CB108D2AEAC2DE00B72222 /* UiModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CB108C2AEAC2DE00B72222 /* UiModifier.swift */; };
 		F3CB108F2AEAD07C00B72222 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CB108E2AEAD07C00B72222 /* Utility.swift */; };
+		F3F0A5912AFC73C50039D057 /* CustomImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F0A5902AFC73C50039D057 /* CustomImagePicker.swift */; };
 		F3F46FAC2AF6A81400E445C6 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F46FAB2AF6A81400E445C6 /* ContentViewModel.swift */; };
 		F3F835552AF16CF500410E91 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F835542AF16CF500410E91 /* CustomAlert.swift */; };
 		F3F8355A2AF1702900410E91 /* CustomLoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F835592AF1702900410E91 /* CustomLoadingIndicator.swift */; };
@@ -97,6 +98,7 @@
 		F3CB108A2AEAC1B000B72222 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		F3CB108C2AEAC2DE00B72222 /* UiModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UiModifier.swift; sourceTree = "<group>"; };
 		F3CB108E2AEAD07C00B72222 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		F3F0A5902AFC73C50039D057 /* CustomImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImagePicker.swift; sourceTree = "<group>"; };
 		F3F46FAB2AF6A81400E445C6 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		F3F835542AF16CF500410E91 /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
 		F3F835592AF1702900410E91 /* CustomLoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLoadingIndicator.swift; sourceTree = "<group>"; };
@@ -403,6 +405,7 @@
 		F3C91E262AEEBCD000D0E0F7 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				F3F0A58F2AFC73A00039D057 /* ImagePicker */,
 				F3F835582AF1701600410E91 /* Custom Loading Indicator */,
 				F3F835532AF16CD100410E91 /* Custom Alert */,
 				F3C91E272AEEBCE800D0E0F7 /* CircularProfileImageView.swift */,
@@ -453,6 +456,14 @@
 				F3CB10872AEABB5000B72222 /* DefaultInputText.swift */,
 			);
 			path = "Default Input Text";
+			sourceTree = "<group>";
+		};
+		F3F0A58F2AFC73A00039D057 /* ImagePicker */ = {
+			isa = PBXGroup;
+			children = (
+				F3F0A5902AFC73C50039D057 /* CustomImagePicker.swift */,
+			);
+			path = ImagePicker;
 			sourceTree = "<group>";
 		};
 		F3F46FA82AF6A7F500E445C6 /* Root */ = {
@@ -609,6 +620,7 @@
 				F362CD642AF7BC7E0055A49E /* Message.swift in Sources */,
 				F35679592AEA98F200A30FA5 /* FontModifier.swift in Sources */,
 				F3CB10882AEABB5000B72222 /* DefaultInputText.swift in Sources */,
+				F3F0A5912AFC73C50039D057 /* CustomImagePicker.swift in Sources */,
 				F3AAA6E52AFA9FF2007CF7D0 /* InboxService.swift in Sources */,
 				F3C91E1E2AEE87DC00D0E0F7 /* ProfileView.swift in Sources */,
 				F3B976442AEBEA0A00B408CD /* InputTextWithBG.swift in Sources */,

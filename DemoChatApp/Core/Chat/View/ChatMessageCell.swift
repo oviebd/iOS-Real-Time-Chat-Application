@@ -13,8 +13,8 @@ struct ChatMessageCell: View {
     private var isFromCurrentUser: Bool {
         return message.isFromCurrenrUser
     }
-    
-    private var user : User? {
+     
+    private var user : User?                                                                                                 {
         return message.user
     }
 
