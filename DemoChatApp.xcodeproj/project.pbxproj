@@ -51,6 +51,7 @@
 		F3CB108D2AEAC2DE00B72222 /* UiModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CB108C2AEAC2DE00B72222 /* UiModifier.swift */; };
 		F3CB108F2AEAD07C00B72222 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CB108E2AEAD07C00B72222 /* Utility.swift */; };
 		F3F0A5912AFC73C50039D057 /* CustomImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F0A5902AFC73C50039D057 /* CustomImagePicker.swift */; };
+		F3F0A5932AFD01E20039D057 /* ImageUploadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F0A5922AFD01E20039D057 /* ImageUploadService.swift */; };
 		F3F46FAC2AF6A81400E445C6 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F46FAB2AF6A81400E445C6 /* ContentViewModel.swift */; };
 		F3F835552AF16CF500410E91 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F835542AF16CF500410E91 /* CustomAlert.swift */; };
 		F3F8355A2AF1702900410E91 /* CustomLoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F835592AF1702900410E91 /* CustomLoadingIndicator.swift */; };
@@ -99,6 +100,7 @@
 		F3CB108C2AEAC2DE00B72222 /* UiModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UiModifier.swift; sourceTree = "<group>"; };
 		F3CB108E2AEAD07C00B72222 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		F3F0A5902AFC73C50039D057 /* CustomImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImagePicker.swift; sourceTree = "<group>"; };
+		F3F0A5922AFD01E20039D057 /* ImageUploadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploadService.swift; sourceTree = "<group>"; };
 		F3F46FAB2AF6A81400E445C6 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		F3F835542AF16CF500410E91 /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
 		F3F835592AF1702900410E91 /* CustomLoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLoadingIndicator.swift; sourceTree = "<group>"; };
@@ -284,6 +286,7 @@
 			children = (
 				F3982AC82AF1548C00701854 /* AuthService.swift */,
 				F39BE6A42AF732B400CB119F /* UserService.swift */,
+				F3F0A5922AFD01E20039D057 /* ImageUploadService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -595,6 +598,7 @@
 				F3C91E2D2AEEC83D00D0E0F7 /* ChatView.swift in Sources */,
 				F33DE8B52AF91E03003F3DDE /* ChatService.swift in Sources */,
 				F3C91E282AEEBCE800D0E0F7 /* CircularProfileImageView.swift in Sources */,
+				F3F0A5932AFD01E20039D057 /* ImageUploadService.swift in Sources */,
 				F3B976492AEBF18F00B408CD /* InboxView.swift in Sources */,
 				F356795B2AEAA0E400A30FA5 /* Constants.swift in Sources */,
 				F3C91E222AEEAB5800D0E0F7 /* ProfileViewModel.swift in Sources */,

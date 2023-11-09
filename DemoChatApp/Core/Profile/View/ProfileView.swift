@@ -10,12 +10,18 @@ import SwiftUI
 
 struct ProfileView: View {
 
-    @StateObject var profileVm = ProfileViewModel()
+    @StateObject var profileVm : ProfileViewModel
     @State var showImageChooser = false
     @State var showImagePicker = false
     @State var sourceType: UIImagePickerController.SourceType = .camera
    
     let user : User
+    
+    init(user : User) {
+        self._profileVm = StateObject(wrappedValue: ProfileViewModel(user: user))
+        self.user = user
+    }
+    
     var body: some View {
         VStack {
             headerView
@@ -66,21 +72,6 @@ extension ProfileView {
                 }
             }
             
-            
-//            PhotosPicker(selection: $profileVm.selectedItem) {
-//                if let profileImage = profileVm.profileImage {
-//                    profileImage
-//                        .resizable()
-//                        .clipShape(Circle())
-//                        .frame(width: 80, height: 80)
-//
-//                } else {
-//
-//                    CircularProfileImageView(user: user, size: .xLarge)
-//
-//                }
-//            }
-
             Text(user.fullName)
                 .foregroundColor(Constants.ColorAsset.primaryTextColor)
                 .font(.title2)

@@ -5,30 +5,40 @@
 //  Created by Habibur Rahman on 29/10/23.
 //
 
-import SwiftUI
+import Firebase
+import FirebaseFirestore
 import PhotosUI
+import SwiftUI
 
-class ProfileViewModel : ObservableObject {
-    @Published var selectedItem : UIImage?{
-        didSet{
-            loadImage()
-            //Task {try await loadImage()}
+class ProfileViewModel: ObservableObject {
+ 
+    let imageUploadService = ImageUploadService()
+    var user : User
+    
+    @Published var profileImage: Image?
+    @Published var selectedItem: UIImage? {
+        didSet {
+            Task { try await loadImage() }
+            // Task {try await loadImage()}
         }
     }
-    
-    @Published var profileImage : Image?
-    
-    
-    func loadImage() {
-        guard let image = selectedItem else { return }
-        profileImage = Image(uiImage: image)
+
+    init(user : User) {
+        self.user = user
     }
     
-//    func loadImage() async throws {
-//        guard let item = selectedItem else {return}
-//        guard let imageData = try await item.loadTransferable(type: Data.self) else {return}
-//        guard let uiImage = UIImage(data: imageData) else {return}
-//        profileImage = Image(uiImage: uiImage)
-//    }
-    
+    @MainActor
+    func loadImage() async throws {
+        guard let image = selectedItem else { return }
+        profileImage = Image(uiImage: image)
+
+        let imagePath = try await imageUploadService.uploadImage(image: image, imageType: .ProfileIMage)
+
+        guard let uid = user.uuid else { return }
+        let user = User(fullName: user.fullName, email: user.email, profileImageUrl: imagePath)
+        guard let encodeUser = try? Firestore.Encoder().encode(user) else { return }
+        try await FirebaseConstants.UserCollection.document(uid).setData(encodeUser)
+
+      
+    }
 }

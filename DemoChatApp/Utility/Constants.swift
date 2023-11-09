@@ -37,6 +37,8 @@ class Constants {
         static let Messages = "messages"
         static let RecentMessages = "recent-messages"
         static let Timestamp = "timeStamp"
+        static let ProfileImage = "profile-images"
+        static let ChatImages = "chat-images"
     }
 
 }

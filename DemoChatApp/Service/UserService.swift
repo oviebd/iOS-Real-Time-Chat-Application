@@ -12,6 +12,7 @@ import FirebaseFirestore
 import Foundation
 
 class UserService {
+    
     @Published var currentUser: User?
     static let shared = UserService()
 
@@ -40,4 +41,8 @@ class UserService {
             completion(user)
         }
     }
+    
+//    static let updateUser (){
+//        
+//    }
 }
