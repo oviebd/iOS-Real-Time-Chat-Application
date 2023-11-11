@@ -9,6 +9,7 @@ import Foundation
 import Firebase
 import FirebaseFirestore
 
+@MainActor
 class AuthService {
     
     @Published var userSession : FirebaseAuth.User?
@@ -22,8 +23,7 @@ class AuthService {
         
       //  print("U>> userSession id is \(self.userSession?.uid)")
     }
-    
-    @MainActor
+
     func login(withEmail email: String, password: String) async throws {
         do {
             let result = try await Auth.auth().signIn(withEmail: email, password: password)
@@ -34,7 +34,7 @@ class AuthService {
         }
     }
 
-    @MainActor
+
     func createUser(withEmail email: String, password: String, fullName: String) async throws {
         
         do {
@@ -49,11 +49,12 @@ class AuthService {
     }
     
     
+   
     func signOut () {
         do {
             try Auth.auth().signOut()
             self.userSession = nil
-            UserService.shared.currentUser = nil 
+            UserService.shared.signOutUser() //currentUser = nil
         }catch{
             print("U>> failed to signOut \(error.localizedDescription)")
         }

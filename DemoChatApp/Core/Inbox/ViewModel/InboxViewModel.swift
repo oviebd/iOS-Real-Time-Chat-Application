@@ -9,11 +9,13 @@ import Combine
 import Firebase
 import Foundation
 
+@MainActor
 class InboxViewModel: ObservableObject {
     @Published var currentUser: User?
     @Published var recentMessages = [Message]()
 
     private let inboxService = InboxService()
+    private let userService = UserService()
     private var cancellables = Set<AnyCancellable>()
 
     init() {
@@ -24,25 +26,53 @@ class InboxViewModel: ObservableObject {
     private func setupSubscribers() {
         UserService.shared.$currentUser.sink { [weak self] user in
             self?.currentUser = user
-        }.store(in: &cancellables)
+        }
+        .store(in: &cancellables)
 
         inboxService.$documentChange.sink { [weak self] changes in
-            self?.loadInitialMessages(fromChanges: changes)
+            self?.loadInitialMessages(fromChanges: changes, isInitial: self?.recentMessages.count ?? 0 <= 0)
         }.store(in: &cancellables)
     }
 
-    private func loadInitialMessages(fromChanges changes: [DocumentChange]) {
+    private func loadInitialMessages(fromChanges changes: [DocumentChange], isInitial: Bool) {
         var messages = changes.compactMap {
             try? $0.document.data(as: Message.self)
         }
 
-        for i in 0 ..< messages.count {
-            let message = messages[i]
+        var isWithUser: [String: User] = [:]
 
-            UserService.fetchUser(withUid: message.chatPartnerId) { [weak self] user in
-                messages[i].user = user
-                self?.recentMessages.append(messages[i])
+        Task {
+            isWithUser = try await prepareMessageData(recentMessages: messages)
+
+            for i in 0 ..< messages.count {
+                let message = messages[i]
+                recentMessages = self.recentMessages.filter({ $0.user?.id != message.chatPartnerId })
+                messages[i].user = isWithUser[message.chatPartnerId]
+
+                if isInitial {
+                    self.recentMessages.append(messages[i])
+                } else {
+                    self.recentMessages.insert(messages[i], at: 0)
+                }
             }
         }
+    }
+
+    func prepareMessageData(recentMessages: [Message]) async throws -> [String: User] {
+        var idWithUser: [String: User] = [:]
+
+        try await withThrowingTaskGroup(of: (String, User).self, body: { group in
+
+            for message in recentMessages {
+                group.addTask {
+                    (message.chatPartnerId, try await self.userService.fetchUser(withUid: message.chatPartnerId))
+                }
+            }
+
+            for try await (messageId, user) in group {
+                idWithUser[messageId] = user
+            }
+        })
+        return idWithUser
     }
 }
