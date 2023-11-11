@@ -37,7 +37,7 @@ struct InboxRowView: View {
                         .font(.footnote)
                 }
 
-                Text(message.messageText)
+                Text(getMessageText())
                     .foregroundColor(Constants.ColorAsset.textColor2)
                     .font(.subheadline)
                     .lineLimit(2)
@@ -45,10 +45,17 @@ struct InboxRowView: View {
         }
         .frame(height: 72)
     }
+    
+    func getMessageText() -> String {
+        if message.isFromCurrenrUser {
+            return "you: " + message.messageText
+        }
+        return message.messageText
+    }
 }
 
-//struct InboxRowView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        InboxRowView(user: User.Mock_User)
-//    }
-//}
+struct InboxRowView_Previews: PreviewProvider {
+    static var previews: some View {
+        InboxRowView(message: Message.MockMessage)
+    }
+}
