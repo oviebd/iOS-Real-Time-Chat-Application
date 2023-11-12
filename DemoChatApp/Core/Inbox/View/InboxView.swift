@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct InboxView: View {
+    @AppStorage("isDarkMode") private var isDarkMode = false
     @State private var showNewMessageView = false
     @StateObject private var viewModel = InboxViewModel()
     @State private var selectedUser: User?
@@ -62,7 +63,7 @@ struct InboxView: View {
                     }
                 })
                 .fullScreenCover(isPresented: $showNewMessageView, content: {
-                    NewMessageView(selectedUser: $selectedUser)
+                    NewMessageView(selectedUser: $selectedUser).environment(\.colorScheme, isDarkMode ? .dark : .light) 
                 })
 
                 .toolbar {

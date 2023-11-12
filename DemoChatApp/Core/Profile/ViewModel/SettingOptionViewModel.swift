@@ -17,11 +17,12 @@ enum SettingOptionViewModel: Int, CaseIterable, Identifiable {
     case privacy
     case notification
 
-    var id: Int{
-        return self.rawValue
+    var id: Int {
+        return rawValue
     }
-    
+
     var title: String {
+        @AppStorage("isDarkMode") var isDarkMode = false
         switch self {
         case .darkMode: return "Dark mode"
         case .activeStatus: return "Active status"
@@ -30,8 +31,8 @@ enum SettingOptionViewModel: Int, CaseIterable, Identifiable {
         case .notification: return "Notification"
         }
     }
-    
-    var imageName : String {
+
+    var imageName: String {
         switch self {
         case .darkMode: return "moon.circle.fill"
         case .activeStatus: return "message.badge.circle.fill"
@@ -40,8 +41,8 @@ enum SettingOptionViewModel: Int, CaseIterable, Identifiable {
         case .notification: return "bell.circle.fill"
         }
     }
-    
-    var itemColor : Color {
+
+    var itemColor: Color {
         switch self {
         case .darkMode: return .black
         case .activeStatus: return Color(.systemGreen)

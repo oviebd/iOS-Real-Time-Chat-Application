@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct NewMessageView: View {
+    
     @Environment(\.dismiss) var dismiss
     @StateObject var vm = NewMessageViewModel()
     @Binding var selectedUser : User?
