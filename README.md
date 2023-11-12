@@ -26,7 +26,7 @@ The iOS Real-Time Chat Application is built using the following technologies and
 - **SwiftUI:** Apple's modern UI framework for building user interfaces.
 - **MVVM Design Pattern:** A design pattern that separates an application into three components: Model, View, and ViewModel, promoting a clean and organized codebase.
 - **Swift Concurrency:** Utilizes the latest concurrency features in Swift to manage asynchronous tasks efficiently.
-- **SOLID Design Pattern:** Adheres to SOLID principles (Single Responsibility, Open-Closed, Liskov Substitution, Interface Segregation, Dependency Inversion) for a scalable and maintainable codebase.
+- **SOLID Design Pattern:** Adheres to SOLID principles for a scalable and maintainable codebase.
 
 
 
@@ -39,5 +39,8 @@ https://youtu.be/FFj91dLLjDE
 
 ## Screenshots
 
-![App Screenshot](https://drive.google.com/file/d/1VGw5SA9ab5AsLibYB8A0Qn63IqUU2QE8/view)
+<img src="ScreenShots/Chat%20View.png" >
+<img src="ScreenShots/realtime%20Chat%20Demo.png" >
+
+
 
